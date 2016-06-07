@@ -1,12 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
+	<!-- Eclipse's m2eclipse-mavenarchiver might not work correctly -->
+	<!-- Install fix from: https://otto.takari.io/content/sites/m2e.extras/m2eclipse-mavenarchiver/0.17.1/N/LATEST/ -->
+
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<groupId>nl.rivm.cib</groupId>
 		<artifactId>episim</artifactId>
-		<version>0.0.1-SNAPSHOT</version>\
+		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../..</relativePath>
 	</parent>
 
@@ -36,7 +39,7 @@
 				<updatePolicy>never</updatePolicy>
 			</snapshots>
 		</repository>
-		
+
 		<repository>
 			<name>EPISIM Public Maven Repository</name>
 			<id>episim-public</id>
@@ -50,36 +53,21 @@
 				<updatePolicy>never</updatePolicy>
 			</snapshots>
 		</repository>
-
-		<!-- TU Delft simulation repository -->
-		<repository>
-			<name>DSOL Public Repository</name>
-			<id>dsol</id>
-			<!-- <url>http://sk-33.tbm.tudelft.nl/maven/</url> -->
-			<url>http://simulation.tudelft.nl/maven</url>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>never</updatePolicy>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
 	</repositories>
 
 	<dependencies>
 		<dependency>
 			<groupId>io.coala</groupId>
-			<artifactId>coala-api-time</artifactId>
+			<artifactId>coala-api</artifactId>
 		</dependency>
-	
-		<!-- <dependency> <groupId>io.coala</groupId> <artifactId>guice3-coala-adapter</artifactId> 
-			<scope>test</scope> </dependency> -->
+
+		<!-- javax.ws.rs-api (JSR-311=v1, JSR-339/javax.ws.rs-api=v2) -->
 		<dependency>
-			<groupId>io.coala</groupId>
-			<artifactId>dsol3-coala-adapter</artifactId>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>javax.ws.rs-api</artifactId>
+			<scope>provided</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
